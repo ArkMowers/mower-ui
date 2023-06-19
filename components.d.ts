@@ -9,9 +9,6 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
-    Advanced: typeof import('./src/components/Advanced.vue')['default']
-    External: typeof import('./src/components/External.vue')['default']
-    Home: typeof import('./src/components/Home.vue')['default']
     NButton: typeof import('naive-ui')['NButton']
     NCard: typeof import('naive-ui')['NCard']
     NCheckbox: typeof import('naive-ui')['NCheckbox']
@@ -30,6 +27,5 @@ declare module '@vue/runtime-core' {
     NSpace: typeof import('naive-ui')['NSpace']
     NTabPane: typeof import('naive-ui')['NTabPane']
     NTabs: typeof import('naive-ui')['NTabs']
-    Plan: typeof import('./src/components/Plan.vue')['default']
   }
 }
