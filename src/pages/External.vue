@@ -53,8 +53,12 @@ function render_tag({ option, handleClose }) {
       default: () => {
         if (option.label == '') {
           return '上次作战'
-        } else if (option.label == 'ann') {
+        } else if (option.label == 'Annihilation') {
           return '当期剿灭'
+        } else if (option.label.endsWith('-HARD')) {
+          return option.label.slice(0, -5) + '磨难'
+        } else if (option.label.endsWith('-NORMAL')) {
+          return option.label.slice(0, -7) + '标准'
         } else {
           return option.label
         }
@@ -69,10 +73,20 @@ function create_tag(label) {
       label: '上次作战',
       value: ''
     }
-  } else if (label == 'ann') {
+  } else if (label == '当期剿灭') {
     return {
       label: '当期剿灭',
       value: 'Annihilation'
+    }
+  } else if (label.endsWith('磨难')) {
+    return {
+      label: label,
+      value: label.slice(0, -2) + '-HARD'
+    }
+  } else if (label.endsWith('标准')) {
+    return {
+      label: label,
+      value: label.slice(0, -2) + '-NORMAL'
     }
   } else {
     return {
@@ -143,9 +157,13 @@ function create_tag(label) {
         <ul>
           <li><b>添加关卡</b>：输入关卡名，按回车键确认。文本变为标签，代表输入成功。</li>
           <li><b>上次作战</b>：输入空格后回车，生成 <n-tag closable>上次作战</n-tag> 标签。</li>
+          <li><b>主线关卡难度</b>：在关卡末尾添加“标准”或“磨难”以指定难度。例：</li>
+          <ul>
+            <li><n-tag closable>12-17标准</n-tag> 表示12-17标准难度。</li>
+            <li><n-tag closable>12-17磨难</n-tag> 表示12-17磨难难度。</li>
+          </ul>
           <li>
-            <b>当期剿灭</b>：输入 <code>ann</code> 后回车，生成
-            <n-tag closable>当期剿灭</n-tag> 标签。
+            <b>当期剿灭</b>：输入“当期剿灭”后回车，生成 <n-tag closable>当期剿灭</n-tag> 标签。
           </li>
           <li>
             <b>信用作战</b>：若当日计划不包含 <n-tag closable>上次作战</n-tag>，则自动进行信用作战。
