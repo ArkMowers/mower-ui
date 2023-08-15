@@ -118,7 +118,7 @@ function create_tag(label) {
   {{ plan.stage = event_set ? plan.stage_default : plan.stage_event }}
 </hide-span>
 
-    <div class="flex-container">
+    <!--<div class="flex-container">-->>
 
       <div class="column">
         <center><n-button @click="event_set = false">使用活动配置</n-button></center>
@@ -160,7 +160,7 @@ function create_tag(label) {
         </table>
       </div>
 
-    </div>
+    <!--</div>-->
   </n-card>
 </template>
 
