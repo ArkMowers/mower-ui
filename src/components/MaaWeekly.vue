@@ -5,7 +5,7 @@ import { useConfigStore } from '@/stores/config'
 const store = useConfigStore()
 const { maa_weekly_plan, maa_enable } = storeToRefs(store)
 
-import { NTag  } from 'naive-ui'
+import { NTag } from 'naive-ui'
 import { h, ref } from 'vue'
 
 const event_set = ref()
@@ -121,14 +121,23 @@ function create_tag(label) {
       <li><b>不刷理智</b>：留空表示不刷理智。</li>
       <li><b>吃药数量</b>：到目前为止，填入大于1的理智药就会吃完（更高深一点的话，一天会消耗24/（maa-基础设置 启动间隔）*理智药的数量。</li>
     </ul>
-{{ maa_weekly_plan }}
+    {{ maa_weekly_plan }}
     <div class="column">
       <table>
         <tr>
           <td></td>
-          <td><n-button @click="event_set = true" >使用默认配置</n-button></td>
+          <td><n-tooltip placement="top-start" trigger="click">
+              <template #trigger>
+                <n-button @click="event_set = true">使用默认配置</n-button>
+              </template>
+              <span> 成了！</span>
+            </n-tooltip></td>
           <td>理智药</td>
-          <td><n-button @click="event_set = false" >使用活动配置</n-button></td>
+          <td><n-tooltip placement="top-start" trigger="click">
+              <template #trigger><n-button @click="event_set = false">使用活动配置</n-button>
+              </template>
+              <span> 成了！</span>
+            </n-tooltip></td>
           <td>理智药</td>
         </tr>
         <tr v-for="plan in maa_weekly_plan" :key="plan.weekday">
