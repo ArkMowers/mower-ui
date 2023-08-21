@@ -52,6 +52,7 @@ function clear() {
     for (let i = 0; i < operator_limit.value; ++i) {
       plans.push({
         agent: '',
+        description: '',
         group: '',
         replacement: []
       })
@@ -456,6 +457,8 @@ const avatar_bg = computed(() => {
               :render-label="renderLabel"
             />
           </td>
+          <td class="select-label">效率：</td>
+          <n-input v-model:value="plan[facility].plans[i - 1].description"></n-input>
           <td class="select-label">组：</td>
           <td class="table-space group">
             <n-input v-model:value="plan[facility].plans[i - 1].group"></n-input>

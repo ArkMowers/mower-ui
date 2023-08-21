@@ -6,9 +6,10 @@ const store = useConfigStore()
 const { maa_weekly_plan, maa_enable } = storeToRefs(store)
 
 import { NTag } from 'naive-ui'
-import { h } from 'vue'
+import { h, ref } from 'vue'
 
 const event_set = ref()
+
 
 function render_tag({ option, handleClose }) {
   return h(
@@ -110,56 +111,47 @@ function create_tag(label) {
         </ul>
       </li>
       <li><b>不刷理智</b>：留空表示不刷理智。</li>
+      <li><b>吃药数量</b>：到目前为止，填入大于1的理智药就会吃完（更高深一点的话，一天会消耗24/（maa-基础设置 启动间隔）*理智药的数量。</li>
     </ul>
 
+    {{ maa_weekly_plan }}
+    <!--div>默认设置{{ maa_weekly_plan }} </div>
 
-<hide-span v-for="plan in maa_weekly_plan" :key="plan.weekday">
+
+    <div>设置为 {{ updatedWeeklyPlan }}</div-->
+
+
+    <!--<div class="flex-container">-->
+
+
+    <hide-span v-for="plan in maa_weekly_plan" :key="plan.weekday">
   {{ plan.medicine = event_set ? plan.medicine_default : plan.medicine_event }}
   {{ plan.stage = event_set ? plan.stage_default : plan.stage_event }}
 </hide-span>
-
-    <!--<div class="flex-container">-->>
-
-      <div class="column">
-        <center><n-button @click="event_set = false">使用活动配置</n-button></center>
-        <table>
-          <tr v-for="plan in maa_weekly_plan" :key="plan.weekday">
-            <td>
-              <n-h4>{{ plan.weekday }}</n-h4>
-            </td>
-            <td>关卡</td>
-            <td>
-              <n-select v-model:value="plan.stage_event" multiple filterable tag :show="false" :show-arrow="false"
-                :render-tag="render_tag" :on-create="create_tag" />
-            </td>
-            <td>理智药</td>
-            <td>
-              <n-input-number v-model:value="plan.medicine_event" :min="0" />
-            </td>
-          </tr>
-        </table>
-      </div>
-      
-      <div class="column">
-        <center><n-button  @click="event_set = true">使用默认配置</n-button></center>
-        <table>
-          <tr v-for="plan in maa_weekly_plan" :key="plan.weekday">
-            <td>
-              <n-h4>{{ plan.weekday }}</n-h4>
-            </td>
-            <td>关卡</td>
-            <td>
-              <n-select v-model:value="plan.stage_default" multiple filterable tag :show="false" :show-arrow="false"
-                :render-tag="render_tag" :on-create="create_tag" />
-            </td>
-            <td>理智药</td>
-            <td>
-              <n-input-number v-model:value="plan.medicine_default" :min="0" />
-            </td>
-          </tr>
-        </table>
-      </div>
-
+    <div class="column">
+      <table>
+        <tr>
+          <td></td>
+          <td><n-button @click="event_set = true">使用默认配置</n-button></td>
+          <td>理智药</td>
+          <td><n-button @click="event_set = false">使用活动配置</n-button></td>
+          <td>理智药</td>
+        </tr>
+        <tr v-for="plan in maa_weekly_plan" :key="plan.weekday">
+          <td><n-h4>{{ plan.weekday }}</n-h4></td>
+          <td>
+            <n-select v-model:value="plan.stage_default" multiple filterable tag :show="false" :show-arrow="false"
+              :render-tag="render_tag" :on-create="create_tag" />
+          </td>
+          <td><n-input-number v-model:value="plan.medicine_default" :min="0" /></td>
+          <td>
+            <n-select v-model:value="plan.stage_event" multiple filterable tag :show="false" :show-arrow="false"
+              :render-tag="render_tag" :on-create="create_tag" />
+          </td>
+          <td><n-input-number v-model:value="plan.medicine_event" :min="0" /></td>
+        </tr>
+      </table>
+    </div>
     <!--</div>-->
   </n-card>
 </template>
@@ -198,23 +190,24 @@ table {
 
   td {
     &:nth-child(1) {
-      width: 40px;
+      width: 10%;
+      min-width: 45px;
     }
 
     &:nth-child(2) {
-      width: 32px;
+      width: 35%;
     }
 
     &:nth-child(3) {
-      padding-right: 8px;
+      width: 10%;
+      min-width: 100px;
     }
-
     &:nth-child(4) {
-      width: 50px;
+      width: 35%;
     }
-
     &:nth-child(5) {
-      width: 90px;
+      width: 10%;
+      min-width: 100px;
     }
   }
 }
