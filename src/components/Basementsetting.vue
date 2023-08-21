@@ -92,7 +92,7 @@ const facility_with_empty = computed(() => {
           </td>
           <td colspan="2">
             <div class="threshold">
-              <n-slider v-model:value="resting_threshold" :step="0.05" :min="0.5" :max="0.8" />
+              <n-slider v-model:value="resting_threshold" :step="0.05" :min="0.1" :max="0.8" />
               <n-input-number v-model:value="resting_threshold" />
             </div>
           </td>
