@@ -31,6 +31,7 @@ declare module '@vue/runtime-core' {
     NInput: typeof import('naive-ui')['NInput']
     NInputNumber: typeof import('naive-ui')['NInputNumber']
     NLog: typeof import('naive-ui')['NLog']
+    NMessageProvider: typeof import('naive-ui')['NMessageProvider']
     NRadio: typeof import('naive-ui')['NRadio']
     NRadioButton: typeof import('naive-ui')['NRadioButton']
     NRadioGroup: typeof import('naive-ui')['NRadioGroup']
@@ -40,8 +41,10 @@ declare module '@vue/runtime-core' {
     NTable: typeof import('naive-ui')['NTable']
     NTabPane: typeof import('naive-ui')['NTabPane']
     NTabs: typeof import('naive-ui')['NTabs']
+    NTd: typeof import('naive-ui')['NTd']
     NTimePicker: typeof import('naive-ui')['NTimePicker']
     NTooltip: typeof import('naive-ui')['NTooltip']
+    NTr: typeof import('naive-ui')['NTr']
     PlanEditor: typeof import('./src/components/PlanEditor.vue')['default']
   }
 }

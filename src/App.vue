@@ -8,21 +8,11 @@
     <n-global-style />
     <n-dialog-provider>
       <n-tabs type="line" placement="left" class="tabs">
-        <n-tab-pane name="doc" tab="文档">
-          <doc />
-        </n-tab-pane>
-        <n-tab-pane name="home" tab="运行日志">
-          <home />
-        </n-tab-pane>
-        <n-tab-pane name="basic" tab="基础设置">
-          <advancedleft />
-        </n-tab-pane>
-        <n-tab-pane name="plan" tab="排班编辑">
-          <plan />
-        </n-tab-pane>
-        <n-tab-pane name="record" tab="报表">
-          <record />
-        </n-tab-pane>
+        <n-tab-pane name="doc" tab="文档"><doc /></n-tab-pane>
+        <n-tab-pane name="home" tab="运行日志"><home /></n-tab-pane>
+        <n-tab-pane name="plan" tab="排班编辑"><plan /></n-tab-pane>
+        <n-tab-pane name="record" tab="报表"><record /></n-tab-pane>
+        <n-tab-pane name="basic" tab="基础设置"><advancedleft /></n-tab-pane>
       </n-tabs>
     </n-dialog-provider>
   </n-config-provider>
