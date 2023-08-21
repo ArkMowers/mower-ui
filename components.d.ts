@@ -9,13 +9,16 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
+    Basementsetting: typeof import('./src/components/Basementsetting.vue')['default']
     Clue: typeof import('./src/components/Clue.vue')['default']
     Email: typeof import('./src/components/Email.vue')['default']
     HelpText: typeof import('./src/components/HelpText.vue')['default']
     MaaBasic: typeof import('./src/components/MaaBasic.vue')['default']
+    Maahugmission: typeof import('./src/components/Maahugmission.vue')['default']
     MaaRecruit: typeof import('./src/components/MaaRecruit.vue')['default']
     MaaRogue: typeof import('./src/components/MaaRogue.vue')['default']
     MaaWeekly: typeof import('./src/components/MaaWeekly.vue')['default']
+    Mowersetting: typeof import('./src/components/Mowersetting.vue')['default']
     NButton: typeof import('naive-ui')['NButton']
     NCard: typeof import('naive-ui')['NCard']
     NCheckbox: typeof import('naive-ui')['NCheckbox']

@@ -7,7 +7,7 @@
   >
     <n-global-style />
     <n-dialog-provider>
-      <n-tabs type="segment" class="tabs">
+      <n-tabs type="line" placement="left" class="tabs">
         <n-tab-pane name="doc" tab="文档">
           <doc />
         </n-tab-pane>
@@ -15,13 +15,10 @@
           <home />
         </n-tab-pane>
         <n-tab-pane name="basic" tab="基础设置">
-          <advanced />
+          <advancedleft />
         </n-tab-pane>
         <n-tab-pane name="plan" tab="排班编辑">
           <plan />
-        </n-tab-pane>
-        <n-tab-pane name="external" tab="任务设置">
-          <external />
         </n-tab-pane>
         <n-tab-pane name="record" tab="报表">
           <record />
@@ -39,6 +36,7 @@ import home from '@/pages/Home.vue'
 import plan from '@/pages/Plan.vue'
 import advanced from '@/pages/Advanced.vue'
 import external from '@/pages/External.vue'
+import advancedleft from '@/pages/advancedleft.vue'
 import record from '@/pages/record.vue'
 import { zhCN, dateZhCN, darkTheme } from 'naive-ui'
 

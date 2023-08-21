@@ -5,7 +5,7 @@ import { usePlanStore } from '@/stores/plan'
 
 const config_store = useConfigStore()
 const { plan_file } = storeToRefs(config_store)
-const { build_config } = config_store
+
 
 const plan_store = usePlanStore()
 const {
@@ -17,21 +17,7 @@ const {
   operators,
   workaholic
 } = storeToRefs(plan_store)
-const { load_plan } = plan_store
 
-import { inject } from 'vue'
-const axios = inject('axios')
-
-import { file_dialog } from '@/utils/dialog'
-
-async function open_plan_file() {
-  const file_path = await file_dialog()
-  if (file_path) {
-    plan_file.value = file_path
-    await axios.post(`${import.meta.env.VITE_HTTP_URL}/conf`, build_config())
-    await load_plan()
-  }
-}
 </script>
 
 <template>
@@ -42,6 +28,7 @@ async function open_plan_file() {
         <td>
           <n-input v-model:value="plan_file"></n-input>
         </td>
+
         <td>
           <n-button @click="open_plan_file">...</n-button>
         </td>
@@ -66,9 +53,9 @@ async function open_plan_file() {
         <td colspan="3">
           <n-radio-group v-model:value="ling_xi">
             <n-space>
-              <n-radio :value="'1'">感知信息</n-radio>
-              <n-radio :value="'2'">人间烟火</n-radio>
-              <n-radio :value="'3'">均衡模式</n-radio>
+              <n-radio :value="'1'">感知信息（夕24 令12）</n-radio>
+              <n-radio :value="'2'">人间烟火（令24 夕12）</n-radio>
+              <n-radio :value="'3'">不调心情（令夕 24-12）</n-radio>
             </n-space>
           </n-radio-group>
         </td>
