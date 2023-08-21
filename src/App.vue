@@ -15,7 +15,7 @@
           <home />
         </n-tab-pane>
         <n-tab-pane name="basic" tab="基础设置">
-          <advanced />
+          <advancedleft />
         </n-tab-pane>
         <n-tab-pane name="plan" tab="排班编辑">
           <plan />
@@ -36,6 +36,7 @@ import home from '@/pages/Home.vue'
 import plan from '@/pages/Plan.vue'
 import advanced from '@/pages/Advanced.vue'
 import external from '@/pages/External.vue'
+import advancedleft from '@/pages/advancedleft.vue'
 import record from '@/pages/record.vue'
 import { zhCN, dateZhCN, darkTheme } from 'naive-ui'
 
